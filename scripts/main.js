@@ -60,7 +60,38 @@ function displayPhotos (photos) {
 //renderPhoto('https://picsum.photos/id/10/300/150');
 //renderPhoto('https://picsum.photos/id/20/300/150');
 //renderPhoto('https://picsum.photos/id/30/300/150');
-displayPhotos (images);
+// displayPhotos (images);
+
+function displayMessage(message) {
+    const main = document.querySelector('main');
+    // main.textContent = message;
+    // main.innerHTML = '<p class ="alert alert-info">' + message + '</p>';
+    
+    // template Literal Strings
+   
+    main.innerHTML = `
+    <p class ="alert alert-info text-center">
+    ${message}
+    </p>
+    `;
+}
+
+ const canDisplayPhotos  = prompt ('Czy chcesz wyswietlić zdjecia');
+  
+
+if (canDisplayPhotos.toLowerCase() === 'tak') {
+
+    console.log('zdjecia istnieja');
+    displayPhotos(images);
+
+  
+
+} else { 
+     console.log('zdjecia nie istnieja')
+     displayMessage ('Nie ma zdjec');
+}
+
+
 
 //displayImages();
 //displayLastElement();
