@@ -34,7 +34,7 @@ function displayLastElement (){
     console.log('/ ' + 67567 / 151612562);
     console.log('* ' + 67567 * 151612562);   //asterix czyli *
     console.log('+ ' + 67567 + 151612562);
-    console.log('- ' + 67567 - 151612562);
+    console.log('- ' + (67567 - 151612562));
     console.log('** ' + 67567 ** 151612562);
 }
 
@@ -58,7 +58,7 @@ function renderPhoto(photo) {
     $card.append($body);
     $card.append($title);
 
-console.log(photo.title);
+    console.log(photo.title);
 
     const main = document.querySelector('main');
     main.append($card); // renderowanie
@@ -80,28 +80,13 @@ function displayPhotos (photos) {
 //renderPhoto('https://picsum.photos/id/30/300/150');
 // displayPhotos (images);
 
-function displayMessage(message) {
-    const main = document.querySelector('main');
-    // main.textContent = message;
-    // main.innerHTML = '<p class ="alert alert-info">' + message + '</p>';
-    
-    // template Literal Strings
-   
-    main.innerHTML = `
-    <p class ="alert alert-info text-center">
-    ${message}
-    </p>
-    `;
-}
+
 
 function  shouldDisplayPhotos() {
     const answer = prompt ('Czy chcesz wyswietlić zdjecia');
     return  (answer.toLowerCase() === 'tak');
     
 }
-
- 
-
 
 
 
