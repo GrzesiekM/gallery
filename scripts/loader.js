@@ -26,3 +26,5 @@ loader.hide = function () {
 
 
 console.log(loader);
+
+

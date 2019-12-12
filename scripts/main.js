@@ -68,10 +68,20 @@ function renderPhoto(photo) {
 
 
 function displayPhotos (photos) { 
-    console.log(photos);
-    for (const photo of photos) {
-        renderPhoto ( photo);
+    // console.log(photos);
+    // for (const photo of photos) {
+    //     renderPhoto ( photo);
+    // }
+    photos.forEach(function (photo) {
+        console.group(photo.author);
+        console.info(photo.title);
+        //console.warn(photo.author);
+        console.groupEnd();
+        renderPhoto(photo);
+
+        // photos.forEach(renderPhoto)
     }
+    )
 }
 
 //uruchomienie funkcji
@@ -119,3 +129,19 @@ setTimeout (function (){
 
 //displayImages();
 //displayLastElement();
+
+const authors = images.map(function (image) {
+    return image.author;
+});
+console.log(authors);
+
+const masterPrice = images.reduce(function (memory, image) {
+    console.warn(memory);
+    memory = memory + image.price;
+    return memory;
+}, 0);
+
+const groupByPrice = images.reduce(function (memory, image) {
+	memory[image.price] = image;
+	return memory;
+}, {})
