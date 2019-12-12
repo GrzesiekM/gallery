@@ -20,8 +20,8 @@
 
 
 
-const isEmpty = (images.lenght ===0);
-const isEmpty2 = (images.lenght ==0);
+// const isEmpty = (images.lenght ===0);
+// const isEmpty2 = (images.lenght ==0);
 
 function displayImages () {
     console.log('Liczba obrazków ' + images.length);
@@ -76,20 +76,41 @@ function displayMessage(message) {
     `;
 }
 
- const canDisplayPhotos  = prompt ('Czy chcesz wyswietlić zdjecia');
+function  shouldDisplayPhotos() {
+    const answer = prompt ('Czy chcesz wyswietlić zdjecia');
+    return  (answer.toLowerCase() === 'tak');
+    
+}
+
+ 
+
+
+
+
+function isEmpty() {
+    return images.length ===0;
+}
   
-
-if (canDisplayPhotos.toLowerCase() === 'tak') {
-
-    console.log('zdjecia istnieja');
-    displayPhotos(images);
-
-  
+loader.show();
+// if (isEmpty()) {
+    if (images.length >1 || images.length <1) {
+    
+        console.log('zdjecia istnieja');
+        displayPhotos(images);
+ 
 
 } else { 
-     console.log('zdjecia nie istnieja')
-     displayMessage ('Nie ma zdjec');
+    
+    console.log('zdjecia nie istnieja')
+    displayMessage ('Nie ma zdjec');
 }
+
+setTimeout (function (){
+    console.info('chowamy loaderka');
+    loader.hide();
+
+}, 1500); //1,5s
+    
 
 
 
