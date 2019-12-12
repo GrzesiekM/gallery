@@ -38,12 +38,30 @@ function displayLastElement (){
     console.log('** ' + 67567 ** 151612562);
 }
 
-function renderPhoto(url) {    
-    const img = document.createElement('img');
-    img.src=url;
+function renderPhoto(photo) {    
+    const $card = document.createElement('div');
+    $card.classList.add('card', 'col-3', 'mx-4');
+    $card.style.width ='30%';
+
+    const $img = document.createElement('img');
+    $img.src=photo.url;
+
+    const $body = document.createElement('div');
+    $body.classList.add('card-body');
+
+    const $title = document.createElement('h5');
+    $title.classList.add('card-title');
+    $title.textContent = photo.title;
+
+    // Group HTML Elements
+    $card.append($img);
+    $card.append($body);
+    $card.append($title);
+
+console.log(photo.title);
 
     const main = document.querySelector('main');
-    main.append(img); // renderowanie
+    main.append($card); // renderowanie
    // console.log(url);
     //console.log(img);
 }
