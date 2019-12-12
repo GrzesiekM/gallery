@@ -11,7 +11,7 @@
 //i++ =>    i=i+1;
 //++i =>    i+i+1;
 
-//petla for
+//pętla for
  // for (let i=0; i < images.length; i++ ){
  //   const image = images[i];
  //   console.log("To jest obrazek " + image);
@@ -44,14 +44,14 @@ function renderPhoto(photo) {
     $card.style.width ='30%';
 
     const $img = document.createElement('img');
-    $img.src=photo.url;
+    $img.src=photo.imageUrl;
 
     const $body = document.createElement('div');
     $body.classList.add('card-body');
 
     const $title = document.createElement('h5');
     $title.classList.add('card-title');
-    $title.textContent = photo.title;
+    $title.textContent = photo.description;
 
     // Group HTML Elements
     $card.append($img);
@@ -73,7 +73,7 @@ function displayPhotos (photos) {
     //     renderPhoto ( photo);
     // }
     photos.forEach(function (photo) {
-        console.group(photo.author);
+        console.group(photo.author.name);
         console.info(photo.title);
         //console.warn(photo.author);
         console.groupEnd();
@@ -100,29 +100,40 @@ function  shouldDisplayPhotos() {
 
 
 
-function isEmpty() {
+function isEmpty(images) {
     return images.length ===0;
 }
   
-loader.show();
-// if (isEmpty()) {
-    if (images.length >1 || images.length <1) {
-    
-        console.log('zdjecia istnieja');
-        displayPhotos(images);
- 
+function main () {
+    loader.show();
 
-} else { 
+    fetchPhotosFromRemote()
+        .then (function (images) {
+    //if (isEmpty()) {
+       if (images.length >1 || images.length <1) {
+       
+           console.log('zdjecia istnieja');
+           displayPhotos(images);
     
-    console.log('zdjecia nie istnieja')
-    displayMessage ('Nie ma zdjec');
+   
+   } else { 
+       
+       console.log('zdjecia nie istnieja')
+       displayMessage ('Nie ma zdjec');
+   }
+
+
+});
 }
+main();
 
-setTimeout (function (){
-    console.info('chowamy loaderka');
-    loader.hide();
 
-}, 1500); //1,5s
+
+// setTimeout (function (){
+//     console.info('chowamy loaderka');
+//     loader.hide();
+
+// }, 1500); //1,5s
     
 
 

@@ -8,7 +8,7 @@ img.classList.add('loader');
 
 // 2. Ustawienie atrybutu "src"
 img.src = 'images/loader.svg';
-// 3. Pobranie referencji do kontenera w którym loader sie wyswietli
+// 3. Pobranie referencji do kontenera w którym loader sie wyświetli
 const $main = document.querySelector('main');
 
 // 4. Dodanie loadera do powyższego kontenera
@@ -20,7 +20,7 @@ $main.append(img);
 loader.hide = function () {
     // 1. Pobrać referencje do loader
     const $loader =document.querySelector('.loader');
-    // 2. Usunąc element z DOMa
+    // 2. Usunąć element z DOMa
     $loader.remove();
 }
 
