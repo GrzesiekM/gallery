@@ -107,7 +107,15 @@ function isEmpty(images) {
 function main() {
     loader.show();
 
-    fetchPhotosFromRemote()
+    fetchPhotosFromLocal()
+     .then(function (images) {
+        return images.map(function (image) {
+            image.imageUrl = image.url;
+            image.description = image.title;
+            return image;
+        });
+     })
+
         .then(function (images) {
 
             if (!isEmpty(images)) {
