@@ -1,4 +1,6 @@
 
+const loader = require('./loader');
+
 //const images = [image1, image2, image3];
 // images.push(image1, image.2, image.3)
 
