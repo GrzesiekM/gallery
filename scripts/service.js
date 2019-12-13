@@ -4,7 +4,7 @@ function fetchPhotos(url) {
           .then(function() {
               //success
               console.log('success')
-              return response.json();
+              return response.json(response);
         }) 
          
 

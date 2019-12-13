@@ -104,29 +104,29 @@ function isEmpty(images) {
     return images.length ===0;
 }
   
-function main () {
+function main() {
     loader.show();
 
     fetchPhotosFromRemote()
-        .then (function (images) {
-    //if (isEmpty()) {
-       if (images.length >1 || images.length <1) {
-       
-           console.log('zdjecia istnieja');
-           displayPhotos(images);
-    
-   
-   } else { 
-       
-       console.log('zdjecia nie istnieja')
-       displayMessage ('Nie ma zdjec');
-   }
+        .then(function (images) {
 
-
-});
+            if (!isEmpty(images)) {
+                // console.log('zdjęcia istnieją');
+                displayPhotos(images);
+            } else {
+                // console.log('zdjęcia nie istnieją');
+                displayMessage('Nie ma zdjęć');
+            }
+        })
+        .catch(function () {
+            displayErrorMessage('Problem z pobraniem zdjęć');
+        })
+        .finally(function () {
+            loader.hide();
+        });
 }
-main();
 
+main();
 
 
 // setTimeout (function (){
@@ -141,18 +141,18 @@ main();
 //displayImages();
 //displayLastElement();
 
-const authors = images.map(function (image) {
-    return image.author;
-});
-console.log(authors);
+// const authors = images.map(function (image) {
+//     return image.author;
+// });
+// console.log(authors);
 
-const masterPrice = images.reduce(function (memory, image) {
-    console.warn(memory);
-    memory = memory + image.price;
-    return memory;
-}, 0);
+// const masterPrice = images.reduce(function (memory, image) {
+//     console.warn(memory);
+//     memory = memory + image.price;
+//     return memory;
+// }, 0);
 
-const groupByPrice = images.reduce(function (memory, image) {
-	memory[image.price] = image;
-	return memory;
-}, {})
+// const groupByPrice = images.reduce(function (memory, image) {
+// 	memory[image.price] = image;
+// 	return memory;
+// }, {})
