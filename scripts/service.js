@@ -1,10 +1,10 @@
 
 function fetchPhotos(url) {
    return fetch(url)
-          .then(function() {
+          .then(function(response) {
               //success
               console.log('success')
-              return response.json(response);
+              return response.json();
         }) 
          
 
